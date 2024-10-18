@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from 'react';
-import { FaHome } from "react-icons/fa";
 import Hero from "./components/Hero";
 import { FloatingNav } from "./components/ui/FloatingNavbar";
 import Grid from "./components/Grid";
