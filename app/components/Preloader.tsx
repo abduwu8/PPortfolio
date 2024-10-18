@@ -1,23 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const Preloader = ({ onLoadingComplete }: { onLoadingComplete: () => void }) => {
-  const [progress, setProgress] = useState(0);
-
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((oldProgress) => {
-        if (oldProgress === 100) {
-          clearInterval(timer);
-          setTimeout(() => onLoadingComplete(), 500); // Delay to show 100% briefly
-          return 100;
-        }
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 100);
-      });
-    }, 100);
+    const timer = setTimeout(() => {
+      onLoadingComplete();
+    }, 3000); // 3 seconds delay
 
-    return () => clearInterval(timer);
+    return () => clearTimeout(timer);
   }, [onLoadingComplete]);
 
   return (

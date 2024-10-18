@@ -12,13 +12,6 @@ import Preloader from "./components/Preloader";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // Simulate some loading time
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000); // Adjust this time as needed
-  }, []);
-
   if (isLoading) {
     return <Preloader onLoadingComplete={() => setIsLoading(false)} />;
   }
